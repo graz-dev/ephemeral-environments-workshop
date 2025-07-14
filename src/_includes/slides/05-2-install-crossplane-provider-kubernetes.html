@@ -1,0 +1,23 @@
+<section data-transition="zoom">
+  <div style="text-align: center;">
+    <h2 style="margin-top: 0.7em; font-size: 1em;">Install the Crossplane Kubernetes Provider</h2>
+    <div style="margin-top: 1.2em; font-size: 0.75em; text-align: left; display: inline-block; max-width: 900px;">
+      To install the <b>Crossplane Kubernetes provider</b>, create a file named <code>provider-kubernetes.yaml</code> with the following content:
+    </div>
+    <div style="background: #222; color: #eee; padding: 0.7em 1.2em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.72em; margin-top: 1.2em; margin-bottom: 1.2em; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.12);">
+<pre style="margin:0; background: none; color: inherit;">
+<span style="color:#888"># provider-kubernetes.yaml</span>
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-kubernetes
+spec:
+  package: xpkg.upbound.io/crossplane-contrib/provider-kubernetes:v0.18.0
+</pre>
+    </div>
+    <div style="margin-top: 1.2em; text-align: center;">
+      <img src="images/crossplane-logo.png" alt="Crossplane Logo" style="height: 36px; margin-right: 16px; vertical-align: middle; max-width: 110px;">
+      <img src="images/kube-green-logo.svg" alt="kube-green Logo" style="height: 36px; vertical-align: middle; max-width: 110px;">
+    </div>
+  </div>
+</section>

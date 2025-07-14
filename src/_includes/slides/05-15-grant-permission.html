@@ -1,0 +1,23 @@
+<section data-transition="zoom">
+  <div style="text-align: center;">
+    <h2 style="margin-top: 0.7em; font-size: 0.98em;">Grant <b>cluster-admin</b> permissions to the <b>kubernetes-provider</b> service account</h2>
+    <div style="margin-top: 0.7em; font-size: 0.68em; text-align: left; display: inline-block; max-width: 900px;">
+      Get the service account name:
+      <div style="background: #222; color: #eee; padding: 0.45em 0.7em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.72em; margin-top: 0.5em; margin-bottom: 0.7em; max-width: 820px; overflow-x: auto;">
+        <span style="color: #23c664;">$</span> SA=$(kubectl -n crossplane-system get sa -o name | grep provider-kubernetes | sed -e 's|serviceaccount/|crossplane-system:|g')
+      </div>
+      Then run:
+      <div style="background: #222; color: #eee; padding: 0.45em 0.7em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.72em; margin-top: 0.5em; margin-bottom: 0.7em; max-width: 820px; overflow-x: auto;">
+        <span style="color: #23c664;">$</span> kubectl create clusterrolebinding provider-kubernetes-admin-binding --clusterrole cluster-admin --serviceaccount="${SA}"
+      </div>
+      You should get:
+      <div style="background: #222; color: #eee; padding: 0.45em 0.7em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.72em; margin-top: 0.5em; margin-bottom: 0.7em; max-width: 820px; overflow-x: auto;">
+        clusterrolebinding.rbac.authorization.k8s.io/provider-kubernetes-admin-binding created
+      </div>
+      <div style="margin-top: 0.7em; text-align: center;">
+        <img src="images/crossplane-logo.png" alt="Crossplane Logo" style="height: 38px; margin-right: 14px; vertical-align: middle; max-width: 100px;">
+        <img src="images/kube-green-logo.svg" alt="kube-green Logo" style="height: 38px; vertical-align: middle; max-width: 100px;">
+      </div>
+    </div>
+  </div>
+</section>

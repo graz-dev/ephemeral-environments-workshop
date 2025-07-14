@@ -1,0 +1,59 @@
+<section data-transition="zoom">
+  <div style="text-align: center;">
+    <h2 style="margin-top: 0.7em; font-size: 0.82em;">Create the Composition</h2>
+    <div style="margin-top: 1.2em; font-size: 0.62em; text-align: left; display: inline-block; max-width: 900px;">
+      To map the abstract API to a real resource, create the <b>composition-postgrescluster.yaml</b> file with the following content:
+    </div>
+    <div style="position: relative; background: #222; color: #eee; padding: 0.35em 0.6em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.56em; margin-top: 1.2em; margin-bottom: 1.2em; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.12); max-height: 350px; overflow-x: auto; overflow-y: auto;">
+      <pre id="composition-code" style="margin:0; background: none; color: inherit; min-width: 400px;"><code class="language-yaml"># composition-postgrescluster.yaml
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: postgrescluster.demo.crossplane.io
+spec:
+  compositeTypeRef:
+    apiVersion: demo.crossplane.io/v1alpha1
+    kind: XPostgresCluster
+  resources:
+  - name: postgres-cluster-object
+    base:
+      apiVersion: kubernetes.crossplane.io/v1alpha2
+      kind: Object
+      spec:
+        managementPolicies: ["*"]
+        forProvider:
+          manifest:
+            apiVersion: postgresql.cnpg.io/v1
+            kind: Cluster
+            metadata:
+              namespace: default
+            spec:
+              storage:
+                size: 1Gi
+              bootstrap:
+                initdb:
+                  database: appdb
+                  owner: appuser
+        providerConfigRef:
+          name: kubernetes-in-cluster
+    patches:
+    - fromFieldPath: "metadata.name"
+      toFieldPath: "spec.forProvider.manifest.metadata.name"
+    - fromFieldPath: "spec.instances"
+      toFieldPath: "spec.forProvider.manifest.spec.instances"
+    - type: FromCompositeFieldPath
+      fromFieldPath: spec.hibernation
+      toFieldPath: spec.forProvider.manifest.metadata.annotations[cnpg.io/hibernation]
+      policy:
+        fromFieldPath: Optional
+      </code></pre>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+    </div>
+    <div style="margin-top: 1.2em; text-align: center;">
+      <img src="images/crossplane-logo.png" alt="Crossplane Logo" style="height: 36px; margin-right: 16px; vertical-align: middle; max-width: 110px;">
+      <img src="images/kube-green-logo.svg" alt="kube-green Logo" style="height: 36px; vertical-align: middle; max-width: 110px;">
+    </div>
+  </div>
+</section>

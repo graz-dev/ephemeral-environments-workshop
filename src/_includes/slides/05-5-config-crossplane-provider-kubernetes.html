@@ -1,0 +1,24 @@
+<section data-transition="zoom">
+  <div style="text-align: center;">
+    <h2 style="margin-top: 0; font-size: 1.15em;">Configure the Crossplane Kubernetes Provider</h2>
+    <div style="margin-top: 1em; font-size: 0.75em; text-align: left; display: inline-block; max-width: 900px;">
+      Create the <code>provider-kubernetes-config.yaml</code> file to configure the <b>Kubernetes Crossplane provider</b> with the following content:
+      <div style="margin-top: 0.7em; margin-bottom: 1em;">
+        <pre style="background: #222; color: #eee; padding: 0.5em 0.8em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.72em; text-align: left;">
+<span style="color:#888"># provider-kubernetes-config.yaml</span>
+apiVersion: kubernetes.crossplane.io/v1alpha1
+kind: ProviderConfig
+metadata:
+  name: kubernetes-in-cluster
+spec:
+  credentials:
+    source: InjectedIdentity
+        </pre>
+      </div>
+      <div style="margin-top: 1em; text-align: center;">
+        <img src="images/crossplane-logo.png" alt="Crossplane Logo" style="height: 35px; margin-right: 15px; vertical-align: middle;">
+        <img src="images/kube-green-logo.svg" alt="kube-green Logo" style="height: 35px; vertical-align: middle;">
+      </div>
+    </div>
+  </div>
+</section>
