@@ -1,0 +1,16 @@
+<section data-transition="zoom">
+  <div style="text-align: center;">
+    <h2 style="margin-top: 0.7em; font-size: 0.98em;">Check the Result</h2>
+    <div style="margin-top: 1.2em; font-size: 0.68em; display: block; text-align: left; max-width: 900px;">
+      Check the <b>XRD</b> status:
+      <div style="background: #222; color: #eee; padding: 0.45em 0.7em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.72em; margin-top: 0.7em; margin-bottom: 1em; max-width: 820px; overflow-x: auto;">
+        <span style="color: #23c664;">$</span> watch "kubectl get xpostgrescluster my-production-db -n default -o yaml"
+      </div>
+      You should see the XRD initially with the property <code>hibernation</code> at <code>off</code>. When kube-green runs it will modify this property to <code>on</code>.
+      <div style="margin-top: 1em; text-align: center;">
+        <img src="images/crossplane-logo.png" alt="Crossplane Logo" style="height: 38px; margin-right: 14px; vertical-align: middle; max-width: 100px;">
+        <img src="images/kube-green-logo.svg" alt="kube-green Logo" style="height: 38px; vertical-align: middle; max-width: 100px;">
+      </div>
+    </div>
+  </div>
+</section>
