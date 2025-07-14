@@ -1,0 +1,25 @@
+<section data-transition="zoom">
+  <div style="text-align: center;">
+    <h2 style="margin-top: 0; font-size: 1.2em;">Check the cluster initial setup</h2>
+    <div style="margin-top: 1em; font-size: 0.75em; text-align: left; display: inline-block;">
+      Check the cluster initial setup.
+      <div style="background: #222; color: #eee; padding: 0.5em 0.8em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.75em; margin-top: 0.7em;">
+        <span style="color: #23c664;">$</span> kubectl get ns
+      </div>
+      <div style="height: 1em;"></div>
+      You should get this output.
+      <div style="background: #222; color: #eee; padding: 0.5em 0.8em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.75em; margin-top: 0.7em; margin-bottom: 1em;">
+        NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STATUS&nbsp;&nbsp;&nbsp;AGE<br>
+        default&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Active&nbsp;&nbsp;&nbsp;4m52s<br>
+        kube-node-lease&nbsp;&nbsp;&nbsp;Active&nbsp;&nbsp;&nbsp;4m52s<br>
+        kube-public&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Active&nbsp;&nbsp;&nbsp;4m52s<br>
+        kube-system&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Active&nbsp;&nbsp;&nbsp;4m53s<br>
+        local-path-storage&nbsp;Active&nbsp;&nbsp;&nbsp;4m47s
+      </div>
+      <div style="margin-top: 1em; text-align: center;">
+        <img src="/images/crossplane-logo.png" alt="Crossplane Logo" style="height: 35px; margin-right: 15px; vertical-align: middle;">
+        <img src="/images/kube-green-logo.svg" alt="kube-green Logo" style="height: 35px; vertical-align: middle;">
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+<section data-transition="zoom">
+  <div style="text-align: center;">
+    <h2 style="margin-top: 0; font-size: 1.1em;">Add Crossplane</h2>
+    <div style="margin-top: 1em; font-size: 0.8em; text-align: left; display: inline-block;">
+      Add <b>Crossplane</b> <i>helm</i> repo.
+      <div style="background: #222; color: #eee; padding: 0.6em 1em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.8em; margin-top: 1em;">
+        <span style="color: #23c664;">$</span> helm repo add crossplane-stable https://charts.crossplane.io/stable<br>
+        <span style="color: #23c664;">$</span> helm repo update
+      </div>
+      <div style="height: 1.7em;"></div>
+      Install <b>Crossplane</b>.
+      <div style="background: #222; color: #eee; padding: 0.6em 1em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.8em; margin-top: 1em; margin-bottom: 1.7em;">
+        <span style="color: #23c664;">$</span> helm install crossplane --namespace crossplane-system --create-namespace crossplane-stable/crossplane
+      </div>
+      <div style="margin-top: 1em; text-align: center;">
+        <img src="/images/crossplane-logo.png" alt="Crossplane Logo" style="height: 38px; margin-right: 14px; vertical-align: middle;">
+        <img src="/images/kube-green-logo.svg" alt="kube-green Logo" style="height: 38px; vertical-align: middle;">
+      </div>
+    </div>
+  </div>
+</section>
