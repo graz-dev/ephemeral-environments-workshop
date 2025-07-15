@@ -6,13 +6,19 @@ This repository contains the materials and slides for the **Ephemeral Environmen
 
 ## Workshop Topics
 
-- Setting up a local Kubernetes cluster with [kind](https://kind.sigs.k8s.io/)
-- Installing and configuring Crossplane
-- Managing cloud-native PostgreSQL clusters with [CloudNativePG](https://cloudnative-pg.io/)
-- Automating resource management and sustainability with [kube-green](https://github.com/kube-green/kube-green)
-- Best practices for ephemeral environments in development and testing
+- Introduction to ephemeral environments and their benefits
+- Overview of **Crossplane** and **kube-green** for cloud-native infrastructure
+- Strategies for automating resource provisioning and sustainability
+- Real-world use cases and best practices for development and testing
 
 ## Workshop Cases
 
-- **Cloud Native PG PSQL Cluster**: Learn how to manage the shutdown and restart of a PostgreSQL cluster using the [CloudNativePG](https://cloudnative-pg.io/) operator orchestrated by Crossplane. Access the case on the [workshop slides](https://graz-dev.github.io/ephemeral-environments-workshop/#/9) or access the markdown guide in the `cases/cloud-native-pg/WORKSHOP.md` file.
+- **Cloud Native PG PSQL Cluster**: Learn how to manage the shutdown and restart of a PostgreSQL cluster using the [CloudNativePG](https://cloudnative-pg.io/) operator orchestrated by Crossplane. 
+  - Access the case on the [workshop slides](https://graz-dev.github.io/ephemeral-environments-workshop/#/9) or access the markdown guide in the `cases/cloud-native-pg/WORKSHOP.md` file.
+  - Prerequisites:
+    - Kind
+    - Helm
+    - Crossplane
+    - Kubegreen
+    - No cloud provider subscription needed, it can be done fully on local environment
 
