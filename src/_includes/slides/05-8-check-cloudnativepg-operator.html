@@ -1,18 +1,22 @@
 <section data-transition="zoom">
-  <div style="text-align: center;">
-    <h2 style="margin-top: 0; font-size: 1.2em;">Check the operator installation</h2>
-    <div style="margin-top: 1em; font-size: 0.75em; text-align: left; display: inline-block;">
-      Check the <b>CloudNativePG Operator</b> installation:
-      <div style="background: #222; color: #eee; padding: 0.5em 0.8em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.75em; margin-top: 0.7em; margin-bottom: 1em;">
-        <span style="color: #23c664;">$</span> kubectl rollout status deployment -n cnpg-system cnpg-controller-manager
-      </div>
-      You should get this output:
-      <div style="background: #222; color: #eee; padding: 0.5em 0.8em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.75em; margin-top: 0.7em; margin-bottom: 1em;">
-        deployment "cnpg-controller-manager" successfully rolled out
-      </div>
-      <div style="margin-top: 1em; text-align: center;">
-        <img src="images/crossplane-logo.png" alt="Crossplane Logo" style="height: 35px; margin-right: 15px; vertical-align: middle;">
-        <img src="images/kube-green-logo.svg" alt="kube-green Logo" style="height: 35px; vertical-align: middle;">
+  <div style="display: flex; justify-content: center; align-items: center; min-height: 70vh;">
+    <div style="text-align: left; width: 100%; max-width: 900px;">
+      <div style="text-align: center;">
+        <h2 style="margin-top: 0; font-size: 1.2em;">Check the operator installation</h2>
+        <div style="margin-top: 1em; font-size: 0.75em; text-align: left; display: inline-block;">
+          Check the <b>CloudNativePG Operator</b> installation:
+          <div style="background: #222; color: #eee; padding: 0.5em 0.8em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.75em; margin-top: 0.7em; margin-bottom: 1em;">
+            <span style="color: #23c664;">$</span> kubectl rollout status deployment -n cnpg-system cnpg-controller-manager
+          </div>
+          You should get this output:
+          <div style="background: #222; color: #eee; padding: 0.5em 0.8em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.75em; margin-top: 0.7em; margin-bottom: 1em;">
+            deployment "cnpg-controller-manager" successfully rolled out
+          </div>
+          <div style="margin-top: 1em; text-align: center;">
+            <img src="images/crossplane-logo.png" alt="Crossplane Logo" style="height: 35px; margin-right: 15px; vertical-align: middle;">
+            <img src="images/kube-green-logo.svg" alt="kube-green Logo" style="height: 35px; vertical-align: middle;">
+          </div>
+        </div>
       </div>
     </div>
   </div>

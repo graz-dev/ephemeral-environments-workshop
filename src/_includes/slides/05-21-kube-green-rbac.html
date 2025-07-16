@@ -1,12 +1,13 @@
 <section data-transition="zoom">
-  <div style="text-align: center;">
-    <h2 style="margin-top: 0.7em; font-size: 0.98em;">Grant kube-green permission to patch <code>XPostgresCluster</code></h2>
-    <div style="margin-top: 1.2em; font-size: 0.68em; display: block; text-align: left; max-width: 900px;">
-      Create the file <b>kube-green-rbac-for-postgres.yaml</b> with the following content:
-    </div>
-    <div style="width: 100%; text-align: center;">
-      <div style="position: relative; background: #222; color: #eee; padding: 0.8em 1.6em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.82em; margin-top: 1em; margin-bottom: 1em; box-shadow: 0 2px 8px rgba(0,0,0,0.12); max-width: 900px; max-height: 220px; overflow-x: auto; overflow-y: auto; display: inline-block;">
-        <pre style="margin:0; background: none; color: inherit; min-width: 400px;"><code class="language-yaml"># kube-green-rbac-for-postgres.yaml
+  <div style="display: flex; justify-content: center; align-items: center; min-height: 70vh;">
+    <div style="text-align: left; width: 100%; max-width: 900px;">
+      <h2 style="margin-top: 0.7em; font-size: 0.98em;">Grant kube-green permission to patch <code>XPostgresCluster</code></h2>
+      <div style="margin-top: 1.2em; font-size: 0.68em; display: block;">
+        Create the file <b>kube-green-rbac-for-postgres.yaml</b> with the following content:
+      </div>
+      <div style="width: 100%; text-align: center;">
+        <div style="position: relative; background: #222; color: #eee; padding: 0.8em 1.6em; border-radius: 8px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.82em; margin-top: 1em; margin-bottom: 1em; box-shadow: 0 2px 8px rgba(0,0,0,0.12); max-width: 900px; max-height: 220px; overflow-x: auto; overflow-y: auto; display: inline-block;">
+          <pre style="margin:0; background: none; color: inherit; min-width: 400px;"><code class="language-yaml"># kube-green-rbac-for-postgres.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -35,14 +36,15 @@ subjects:
   name: kube-green-controller-manager
   namespace: kube-green
 </code></pre>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+        </div>
       </div>
-    </div>
-    <div style="margin-top: 0.2em; text-align: center;">
-      <img src="images/crossplane-logo.png" alt="Crossplane Logo" style="height: 38px; margin-right: 14px; vertical-align: middle; max-width: 100px;">
-      <img src="images/kube-green-logo.svg" alt="kube-green Logo" style="height: 38px; vertical-align: middle; max-width: 100px;">
+      <div style="margin-top: 0.2em; text-align: center;">
+        <img src="images/crossplane-logo.png" alt="Crossplane Logo" style="height: 38px; margin-right: 14px; vertical-align: middle; max-width: 100px;">
+        <img src="images/kube-green-logo.svg" alt="kube-green Logo" style="height: 38px; vertical-align: middle; max-width: 100px;">
+      </div>
     </div>
   </div>
 </section>

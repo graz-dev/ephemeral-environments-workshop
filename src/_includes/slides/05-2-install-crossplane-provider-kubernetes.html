@@ -1,11 +1,12 @@
 <section data-transition="zoom">
-  <div style="text-align: center;">
-    <h2 style="margin-top: 0.7em; font-size: 1em;">Install the Crossplane Kubernetes Provider</h2>
-    <div style="margin-top: 1.2em; font-size: 0.75em; text-align: left; display: inline-block; max-width: 900px;">
-      To install the <b>Crossplane Kubernetes provider</b>, create a file named <code>provider-kubernetes.yaml</code> with the following content:
-    </div>
-    <!-- IDE-like code block with syntax highlight -->
-    <div class="code-ide" style="background: #222; color: #eee; padding: 0.4em 0.7em; border-radius: 7px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.62em; margin-top: 1em; margin-bottom: 1em; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.12); overflow-x: auto; max-width: 600px; display: inline-block;">
+  <div style="display: flex; justify-content: center; align-items: center; min-height: 70vh;">
+    <div style="text-align: left; width: 100%; max-width: 900px;">
+      <h2 style="margin-top: 0.7em; font-size: 1em;">Install the Crossplane Kubernetes Provider</h2>
+      <div style="margin-top: 1.2em; font-size: 0.75em; text-align: left; display: inline-block; max-width: 900px;">
+        To install the <b>Crossplane Kubernetes provider</b>, create a file named <code>provider-kubernetes.yaml</code> with the following content:
+      </div>
+      <!-- IDE-like code block with syntax highlight -->
+      <div class="code-ide" style="background: #222; color: #eee; padding: 0.4em 0.7em; border-radius: 7px; font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace; font-size: 0.62em; margin-top: 1em; margin-bottom: 1em; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.12); overflow-x: auto; max-width: 600px; display: inline-block;">
       <pre class="language-yaml" style="margin:0; background: none; color: inherit; max-height: 220px; overflow-x: auto;"><code class="language-yaml"># provider-kubernetes.yaml
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
@@ -14,10 +15,11 @@ metadata:
 spec:
   package: xpkg.upbound.io/crossplane-contrib/provider-kubernetes:v0.18.0
 </code></pre>
-    </div>
-    <div style="margin-top: 1.2em; text-align: center;">
-      <img src="images/crossplane-logo.png" alt="Crossplane Logo" style="height: 36px; margin-right: 16px; vertical-align: middle; max-width: 110px;">
-      <img src="images/kube-green-logo.svg" alt="kube-green Logo" style="height: 36px; vertical-align: middle; max-width: 110px;">
+      </div>
+      <div style="margin-top: 1.2em; text-align: center;">
+        <img src="images/crossplane-logo.png" alt="Crossplane Logo" style="height: 36px; margin-right: 16px; vertical-align: middle; max-width: 110px;">
+        <img src="images/kube-green-logo.svg" alt="kube-green Logo" style="height: 36px; vertical-align: middle; max-width: 110px;">
+      </div>
     </div>
   </div>
 </section>
