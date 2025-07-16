@@ -1,5 +1,7 @@
 # Ephemeral Environments Workshop
 
+<img width="1103" height="777" alt="Screenshot 2025-07-16 alle 10 29 31" src="https://github.com/user-attachments/assets/162a4149-0611-4afd-baec-be27f22ac415" />
+
 <a href="https://graz-dev.github.io/ephemeral-environments-workshop/#/" target="_blank" style="display: inline-block; background: #23c664; color: #fff; font-weight: bold; padding: 0.3em 1em; border-radius: 16px; text-decoration: none; margin-bottom: 1em;">Live Workshop</a>
 
 This repository contains the materials and slides for the **Ephemeral Environments Workshop**. The workshop is focused on demonstrating how to create, manage, and optimize cloud-native ephemeral environments using Kubernetes, Crossplane, CloudNativePG, and kube-green.
