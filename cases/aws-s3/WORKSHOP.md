@@ -195,16 +195,16 @@ spec:
                 type: object
                 properties:
                   bucketName:
-                    description: "Il nome univoco del bucket S3."
+                    description: "Bucket name."
                     type: string
                   region:
-                    description: "La regione AWS dove creare il bucket."
+                    description: "Bucket region."
                     type: string
                   policy:
-                    description: "La policy JSON completa del bucket in formato stringa."
+                    description: "Bucket policy in JSON format."
                     type: string
                   blockPublicPolicy:
-                    description: "Se impostato a true, blocca le policy pubbliche."
+                    description: "Block public access policy."
                     type: boolean
                     default: true
                 required:
@@ -373,4 +373,108 @@ And on the AWS console you should see your bucket available:
 
 ![](/cases/aws-s3/imgs/s3-1.png)
 
-13. 
+13. Now, give the permission to *kube-green* to manage our composite resource. Create a file `kube-green-s3-bucket.yaml` with the following content:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: kube-green-s3-patcher
+rules:
+- apiGroups: ["platform.example.org"]
+  resources: ["securebuckets"]
+  verbs: ["get", "list", "watch", "patch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kube-green-s3-patcher-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: kube-green-s3-patcher
+subjects:
+- kind: ServiceAccount
+  name: kube-green-controller-manager 
+  namespace: kube-green
+```
+
+14. Apply the manifest:
+
+```
+kubectl apply -f kube-green-s3-bucket.yaml
+```
+
+15. Define a *SleepInfo* for kube-green that will change our bucket's policy. Create a `s3-lock-bucket-sleep-info.yaml`:
+
+```yaml
+apiVersion: kube-green.com/v1alpha1
+kind: SleepInfo
+metadata:
+  name: lock-s3-bucket
+spec:
+  weekdays: "*"
+  timeZone: "Europe/Rome"
+  sleepAt: "19:05"
+  wakeUpAt: "19:07"
+  patches:
+  - target:
+      group: platform.example.org
+      kind: SecureBucket
+    patch: |
+      - op: replace
+        path: /spec/parameters/policy
+        value: |
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Sid": "AllowAdminAccess",
+                "Effect": "Allow",
+                "Principal": {
+                  "AWS": "arn:aws:iam::<your-account-id>:user/<your-username>"
+                },
+                "Action": "s3:*",
+                "Resource": [
+                  "arn:aws:s3:::my-final-bucket-for-production-2025",
+                  "arn:aws:s3:::my-final-bucket-for-production-2025/*"
+                ]
+              },
+              {
+                "Sid": "DenyEveryoneElse",
+                "Effect": "Deny",
+                "Principal": "*",
+                "Action": "s3:*",
+                "Resource": [
+                  "arn:aws:s3:::my-final-bucket-for-production-2025",
+                  "arn:aws:s3:::my-final-bucket-for-production-2025/*"
+                ],
+                "Condition": {
+                  "StringNotLike": {
+                    "aws:PrincipalArn": "arn:aws:iam::<your-account-id>:user/<your-username>"
+                  }
+                }
+              }
+            ]
+          }
+```
+
+16. Apply the *SleepInfo*:
+
+```
+kubectl apply -f s3-lock-bucket-sleep-info.yaml
+```
+
+17. Check that kube-green works. When kube-green is triggered you should see a changes in the `policy` field of our `SecureBucket` resource:
+
+```
+kubectl describe securebuckets my-final-bucket-for-production-2025
+```
+
+And your bucket on the AWS console should show the new Policy:
+
+![](/cases/aws-s3/imgs/s3-2.png)
+
+At wakeup time the `SecureBucket` should return in its original state and the bucket too:
+
+![](/cases/aws-s3/imgs/s3-3.png)
