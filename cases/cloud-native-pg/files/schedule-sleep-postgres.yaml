@@ -6,6 +6,7 @@ metadata:
   namespace: default
 spec:
   weekdays: "*"
+  timeZone: "Europe/Rome"
   sleepAt: "18:47"
   wakeUpAt: "18:49"
   patches:

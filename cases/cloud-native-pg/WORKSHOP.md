@@ -93,7 +93,7 @@ NAME                                             READY   STATUS    RESTARTS   AG
 kube-green-controller-manager-6c677846bb-vxs64   1/1     Running   0          85s
 ```
 
-## CASE 1: Handle infrastructure operators
+## Handle infrastructure operators
 
 1. Install the *Crossplane Kubernetes provider* creating the file `provider-kubernetes.yaml` with the following content:
 
