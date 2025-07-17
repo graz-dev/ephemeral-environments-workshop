@@ -17,12 +17,12 @@ This repository contains the materials and slides for the **Ephemeral Environmen
 
 - **Patch Kubernetes Operators**: 
   - Learn how to manage the shutdown and restart of a PostgreSQL cluster using the [CloudNativePG](https://cloudnative-pg.io/) operator orchestrated by Crossplane.Access the case on the [workshop slides](https://graz-dev.github.io/ephemeral-environments-workshop/#/9) or access the markdown guide in the `cases/cloud-native-pg/WORKSHOP.md` file.
-  - Used in this workshop:
-    - Kind
-    - Helm
-    - Crossplane
-    - kube-green
-    - No cloud provider subscription needed, it can be done fully on local environment
+    - Used in this workshop:
+      - Kind
+      - Helm
+      - Crossplane
+      - kube-green
+      - No cloud provider subscription needed, it can be done fully on local environment
 - **Patch AWS Infrastructure Resources**
   - Learn how to manage the availability of a *AWS S3 Bucket* using the [Crossplane AWS S3 Provider](https://marketplace.upbound.io/providers/upbound/provider-aws-s3/v1.23.1) and kube-green. Access the case on the [workshop slides](WIP) or access the markdown guide in the `cases/aws-s3/WORKSHOP.md` file.
     - Used in this workshop:
